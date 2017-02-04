@@ -1,4 +1,4 @@
-package org.learnteachcode.seoul.mysqlprep;
+package org.learnteachcode.seoul.databaseclass;
 
 import org.hibernate.annotations.GenericGenerator;
 
