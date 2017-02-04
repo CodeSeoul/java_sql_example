@@ -2,10 +2,7 @@ package org.learnteachcode.seoul.mysqlprep;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "example")
@@ -16,6 +13,9 @@ public class Example {
     private int id;
 
     private String name;
+
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "exampleObj", targetEntity = ExampleDetail.class)
+    private ExampleDetail detail;
 
     public Example() {}
 
@@ -37,6 +37,14 @@ public class Example {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public ExampleDetail getDetail() {
+        return detail;
+    }
+
+    void setDetail(ExampleDetail detail) {
+        this.detail = detail;
     }
 
     public String toString() {

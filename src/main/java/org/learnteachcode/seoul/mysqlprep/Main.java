@@ -8,7 +8,6 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-
     }
 
     public static void insertExample() {
@@ -84,12 +83,31 @@ public class Main {
         entityManager.close();
     }
 
-    public static void retrieveJPAExample(EntityManagerFactory entityManagerFactory) {
+    public static List<Example> retrieveJPAExample(EntityManagerFactory entityManagerFactory) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
         List<Example> result = entityManager.createQuery( "from Example", Example.class ).getResultList();
         for ( Example example : result ) {
             System.out.println(example);
+        }
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        return result;
+    }
+
+    public static void joinJPAExample(EntityManagerFactory factory, List<Example> examples) {
+        EntityManager entityManager = factory.createEntityManager();
+        entityManager.getTransaction().begin();
+        for(Example example: examples) {
+            ExampleDetail detail = new ExampleDetail("01055555555", example);
+            entityManager.persist(detail);
+            example.setDetail(detail);
+            entityManager.merge(example);
+        }
+
+        List<ExampleDetail> details = entityManager.createQuery("from ExampleDetail", ExampleDetail.class).getResultList();
+        for(ExampleDetail detail : details) {
+            System.out.println(detail.toString());
         }
         entityManager.getTransaction().commit();
         entityManager.close();

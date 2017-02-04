@@ -4,7 +4,7 @@ This is a set of examples for database interactions with a MariaDB database usin
 
 The `insertExample` and `selectExample` functions use direct database interactions with Java's `java.sql` package.
 
-The `insertJPAExample` and `retrieveJPAExample` use JPA - Java Persistence API. This acts as an ORM, or Object-Relation Mapping. This automatically generates SQL statements for classes you define as entities. This allows developers to worry more about their application and less about their database.
+The `joinJPAExample`, `insertJPAExample`, `retrieveJPAExample` use JPA - Java Persistence API. This acts as an ORM, or Object-Relation Mapping. This automatically generates SQL statements for classes you define as entities. This allows developers to worry more about their application and less about their database.
 
 See information about `java.sql` at https://docs.oracle.com/javase/7/docs/api/java/sql/package-summary.html.
 
