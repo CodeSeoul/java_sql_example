@@ -14,7 +14,7 @@
             Persistence unit for the LearnTeachCode Java database class
         </description>
 
-        <class>org.learnteachcode.seoul.mysqlprep.Example</class>
+        <class>org.learnteachcode.seoul.databaseclass.Example</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver" />
