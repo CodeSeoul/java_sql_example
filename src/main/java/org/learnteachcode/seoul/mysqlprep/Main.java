@@ -9,10 +9,6 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        EntityManagerFactory factory = setupJPAFactory();
-        insertJPAExample(factory);
-        retrieveJPAExample(factory);
-        closeFactory(factory);
     }
 
     public static void insertExample() {
@@ -73,8 +69,7 @@ public class Main {
     }
 
     public static EntityManagerFactory setupJPAFactory() {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory( "org.learnteachcode.seoul.mysqlprep.persistence-unit" );
-        return entityManagerFactory;
+        return Persistence.createEntityManagerFactory( "org.learnteachcode.seoul.mysqlprep.persistence-unit" );
     }
 
     public static void closeFactory(EntityManagerFactory factory) {
